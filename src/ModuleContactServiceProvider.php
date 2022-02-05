@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Bolsainmobiliariape\ModuleContact;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use Bolsainmobiliariape\ModuleContact\Commands\ModuleContactCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class ModuleContactServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -15,11 +15,12 @@ class SkeletonServiceProvider extends PackageServiceProvider
          *
          * More info: https://github.com/spatie/laravel-package-tools
          */
-        $package
-            ->name('skeleton')
+        $package 
+            ->name('module-contact')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_skeleton_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasMigration('create_module-contact_table')
+            ->hasRoute('contact')
+            ->hasCommand(ModuleContactCommand::class);
     }
 }

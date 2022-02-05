@@ -8,10 +8,12 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('migration_table_name_table', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
 
-            // add fields
+            foreach(config('module-blog.migrations') as $name => $field){
+                $table->{$field}($name);
+            }
 
             $table->timestamps();
         });
