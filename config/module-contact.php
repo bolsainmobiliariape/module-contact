@@ -12,7 +12,7 @@ return [
         "message",
     ],
 
-    "migration" => [
+    "migrations" => [
         "name" => "string",
         "dni" => "string",
         "company" => "string",

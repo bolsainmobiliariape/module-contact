@@ -13,7 +13,8 @@ class Index extends Component
     public function render()
     {
         return view('module-contact::dashboard.contact.index', [
-            'contacts' => Contact::paginate()
-        ]);
+            'contacts' => Contact::paginate(),
+            'contact' => Contact::first()
+        ])->layoutData(['header'=>'Contact']);
     }
 }

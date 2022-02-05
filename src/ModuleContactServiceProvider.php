@@ -19,7 +19,7 @@ class ModuleContactServiceProvider extends PackageServiceProvider
             ->name('module-contact')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_module-contact_table')
+            ->hasMigration('create_module_contact_table')
             ->hasRoute('contact')
             ->hasCommand(ModuleContactCommand::class);
     }

@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
 
-            foreach(config('module-blog.migrations') as $name => $field){
+            foreach(config('module-contact.migrations') as $name => $field){
                 $table->{$field}($name);
             }
 
