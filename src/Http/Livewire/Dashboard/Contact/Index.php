@@ -12,6 +12,8 @@ class Index extends Component
     use WithPagination;
     use WithSorting;
 
+    public $idDelete;
+
     public function mount()
     {
         $this->sortField = "contacted";
@@ -24,12 +26,19 @@ class Index extends Component
         $contact->contacted = !$contact->contacted;
 
         $contact->save();
+
+    }
+    
+    public function delete()
+    {
+        Contact::destroy($this->idDelete);
+        $this->dispatchBrowserEvent('notice', ['type'=>'success','text'=> 'Contacto eliminado con exito!']);
     }
 
     public function render()
     {
         return view('module-contact::dashboard.contact.index', [
-            'contacts' => Contact::orderBy($this->sortField, $this->sortDirection)->paginate(),
+            'contacts' => Contact::where('name', 'LIKE', $this->search)->orderBy($this->sortField, $this->sortDirection)->paginate($this->perPage),
         ])->layoutData(['header'=>'Contact']);
     }
 }

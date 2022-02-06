@@ -33,12 +33,12 @@ return [
     ],
 
     "rules" => [
-        "name" => ["string", 'max:191', 'required'],
-        "dni" => ["string", 'max:191', 'required'],
-        "company" => ["string", 'max:191', 'required'],
-        "email" => ["email", 'required'],
-        "phone" => ["string", 'max:191', 'required'],
-        "asunto" => ["string", 'required'],
-        "message" => ["string", 'required']
+        "contact.name" => ["string", 'max:191', 'required'],
+        "contact.dni" => ["string", 'max:191', 'required'],
+        "contact.company" => ["string", 'max:191', 'required'],
+        "contact.email" => ["email", 'required'],
+        "contact.phone" => ["string", 'max:191', 'required'],
+        "contact.asunto" => ["string", 'required'],
+        "contact.message" => ["string", 'required']
     ],
 ];

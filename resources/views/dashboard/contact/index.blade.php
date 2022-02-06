@@ -33,9 +33,9 @@
                                     {{ $asesor->asunto }}
                                 </x-table.cell>
                                 <x-table.cell>
-                                    <a href="{{ route('dashboard.contact.show', $asesor->id) }}" class="px-4 py-1 text-md bg-blue-500 text-white rounded-md hover:bg-green-700">Ver</a>
+                                    <a href="{{ route('dashboard.contact.show', $asesor->id) }}" class="px-4 py-2 text-md bg-blue-500 text-white rounded-md hover:bg-green-700">Ver</a>
 
-                                    {{-- <button wire:click="$set('idDelete', {{$asesor->id}})" x-on:click="openModal = true" class="appearance-none text-md px-4 py-1 bg-red-500 text-white rounded-md hover:bg-red-700">Delete</button> --}}
+                                    <button wire:click="$set('idDelete', {{$asesor->id}})" x-on:click="openModal = true" class="appearance-none text-md px-4 py-1 bg-red-500 text-white rounded-md hover:bg-red-700">Delete</button>
                                     
                                 </x-table.cell>
                             </x-table.row>
@@ -51,28 +51,7 @@
                     </x-slot>
                 </x-table.table>
 
-                <!-- modal confirm delete -->
-                <div x-show="openModal" class="bg-black absolute inset-0 bg-opacity-20 flex justify-center items-center z-40">
-                    <div class="bg-white text-gray-500 dark:bg-gray-600 dark:text-gray-300 px-4 py-2 rounded-md shadow-xl w-1/3">
-                        <!-- header modal -->
-                        <div class="flex justify-between items-center">
-                        <h3 class="text-lg font-bold">Confirm delete</h3>
-                        <svg x-on:click="openModal = false" class="w-5 h-5 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                        </div>
-
-                        <!-- body modal -->
-                        <div class="my-2">
-                        <p class="font-medium">Are you sure delete this register?</p>
-                        </div>
-
-                        <!-- footer modal -->
-                        <div class="flex justify-center space-x-3">
-                        <button x-on:click="openModal = false" class="bg-blue-500 rounded px-4 py-1 hover:bg-blue-400 text-white">Cancel</button>
-                        {{-- <button wire:click="delete({{$idDelete}})" x-on:click="openModal = false" class="bg-red-600 hover:bg-red-500 rounded px-4 py-1 text-white">Delete</button> --}}
-                        </div>
-                    </div>
-                </div>
-                <!-- end modal -->
+                <x-modal />
             </div>
         </div>
     </div>
