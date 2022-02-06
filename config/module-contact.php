@@ -12,6 +12,16 @@ return [
         "message",
     ],
 
+    "names" =>  [
+        "name" => "Nombre",
+        "dni" => "DNI/RUC",
+        "company" => "Empresa",
+        "email" => "Correo",
+        "phone" => "Telefono",
+        "asunto" => "Asunto",
+        "message" => "Mensaje",
+    ],
+
     "migrations" => [
         "name" => "string",
         "dni" => "string",
