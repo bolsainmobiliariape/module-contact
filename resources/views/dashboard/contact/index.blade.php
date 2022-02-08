@@ -36,7 +36,7 @@
                                     {{ $contact->asunto }}
                                 </x-table.cell>
                                 <x-table.cell>
-                                    {{ $contact->created_at->format('d-m-Y / i:H') }}
+                                    {{ $contact->created_at->format('d-m-Y / H:i') }}
                                 </x-table.cell>
                                 <x-table.cell>
                                     <a href="{{ route('dashboard.contact.show', $contact->id) }}" class="px-4 py-2 text-md bg-blue-500 text-white rounded-md hover:bg-green-700">Ver</a>
