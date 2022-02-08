@@ -13,31 +13,35 @@
                         <x-table.heading>Nombre</x-table.heading>
                         <x-table.heading>Telefono</x-table.heading>
                         <x-table.heading >Asunto</x-table.heading>
+                        <x-table.heading>Fecha / Hora</x-table.heading>
                         <x-table.heading>Acciones</x-table.heading>
                     </x-slot>
 
                     <x-slot name="body">
-                        @forelse($contacts as $key => $asesor)
+                        @forelse($contacts as $key => $contact)
                             <x-table.row wire:loading.class="opacity-50">
                                 <x-table.cell>
-                                    {{$asesor->id}}
+                                    {{$contact->id}}
                                 </x-table.cell>
                                 <x-table.cell>
-                                    <input wire:click="markAsContacted({{$asesor->id}})" type="checkbox" name="contacted"  {{ $asesor->contacted ? 'checked': ''}}>
+                                    <input wire:click="markAsContacted({{$contact->id}})" type="checkbox" name="contacted"  {{ $contact->contacted ? 'checked': ''}}>
                                 </x-table.cell>
                                 <x-table.cell>
-                                    {{ $asesor->name }}
+                                    {{ $contact->name }}
                                 </x-table.cell>
                                 <x-table.cell>
-                                    {{ $asesor->phone }}
+                                    {{ $contact->phone }}
                                 </x-table.cell>
                                 <x-table.cell>
-                                    {{ $asesor->asunto }}
+                                    {{ $contact->asunto }}
                                 </x-table.cell>
                                 <x-table.cell>
-                                    <a href="{{ route('dashboard.contact.show', $asesor->id) }}" class="px-4 py-2 text-md bg-blue-500 text-white rounded-md hover:bg-green-700">Ver</a>
+                                    {{ $contact->created_at->format('d-m-Y / i:H') }}
+                                </x-table.cell>
+                                <x-table.cell>
+                                    <a href="{{ route('dashboard.contact.show', $contact->id) }}" class="px-4 py-2 text-md bg-blue-500 text-white rounded-md hover:bg-green-700">Ver</a>
 
-                                    <button wire:click="$set('idDelete', {{$asesor->id}})" x-on:click="openModal = true" class="appearance-none text-md px-4 py-1 bg-red-500 text-white rounded-md hover:bg-red-700">Delete</button>
+                                    <button wire:click="$set('idDelete', {{$contact->id}})" x-on:click="openModal = true" class="appearance-none text-md px-4 py-1 bg-red-500 text-white rounded-md hover:bg-red-700">Delete</button>
                                     
                                 </x-table.cell>
                             </x-table.row>
