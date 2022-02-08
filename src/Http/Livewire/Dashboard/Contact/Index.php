@@ -6,7 +6,7 @@ use Bolsainmobiliariape\ModuleContact\Models\Contact;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Traits\WithSorting;
-use Maatwebsite\Excel;
+use Maatwebsite\Excel\Facades\Excel
 use Bolsainmobiliariape\ModuleContact\Exports\ContactsExport;
 
 class Index extends Component
