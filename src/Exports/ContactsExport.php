@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports;
+namespace Bolsainmobiliariape\ModuleContact\Exports;
 
 use Bolsainmobiliariape\ModuleContact\Models\Contact;
 use Maatwebsite\Excel\Concerns\FromCollection;
