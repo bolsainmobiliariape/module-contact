@@ -21,10 +21,6 @@ class ContactsExport implements FromCollection, WithHeadings
         $arra = config('module-contact.fields');
 
 
-        return [
-            '#',
-            $arra,
-            'Hora / Fecha',
-        ];
+        return ['#'] + $arra + ['Hora / Fecha'];
     }
 }
