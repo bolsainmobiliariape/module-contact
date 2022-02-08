@@ -13,7 +13,11 @@ class ContactsExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return Contact::select(['id']+config('module-contact.fields')+['created_at'])->get();
+        $arra = config('module-contact.fields');
+
+        $merge = array_merge(array('id'), $arra);
+        $merge = array_merge($merge, array('created_at'));
+        return Contact::select($merge)->get();
     }
 
     public function headings() : array
@@ -22,6 +26,6 @@ class ContactsExport implements FromCollection, WithHeadings
 
         $merge = array_merge(array('id'), $arra);
         $merge = array_merge($merge, array('Hora / Fecha'));
-        return array('#') + $arra + array('Hora / Fecha');
+        return $merge;
     }
 }
