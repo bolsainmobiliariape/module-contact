@@ -6,5 +6,7 @@
         @foreach(config('module-contact.fields') as $key => $item)
         <x-details.item :title="$names[$item]" :description="$contact->{$item}" :gray="$key%2!==0?true:false" />
         @endforeach
+
+        <x-details.item title="Fecha / Hora" :description="$contact->created_at->format('d-m-Y / H:i')" />
     </x-details>
 </div>
