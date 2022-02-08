@@ -1,6 +1,8 @@
 <div x-data="{openModal: false}" class="dark:bg-gray-800">
 
     <div class="">
+
+        <button wire:click="export">Exportar</button>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                 

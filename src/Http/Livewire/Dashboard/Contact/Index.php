@@ -6,6 +6,8 @@ use Bolsainmobiliariape\ModuleContact\Models\Contact;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Traits\WithSorting;
+use Maatwebsite\Excel;
+use Bolsainmobiliariape\ModuleContact\Exports\ContactsExport;
 
 class Index extends Component
 {
@@ -38,7 +40,13 @@ class Index extends Component
     public function render()
     {
         return view('module-contact::dashboard.contact.index', [
-            'contacts' => Contact::where('name', 'LIKE', $this->search)->orderBy($this->sortField, $this->sortDirection)->paginate($this->perPage),
+            'contacts' => Contact::orderBy($this->sortField, $this->sortDirection)->paginate($this->perPage),
         ])->layoutData(['header'=>'Contact']);
+    }
+
+
+    public function export()
+    {
+        return Excel::download(new ContactsExport, 'contacts.xlsx');
     }
 }
