@@ -6,7 +6,12 @@ use Bolsainmobiliariape\ModuleContact\Models\Contact;
 
 trait WithContact
 {
-    public Contact $contact;
+    public $contact;
+
+    public function mount(Contact $contact)
+    {
+        $this->contact = $contact;
+    }
 
     public function rules()
     {
