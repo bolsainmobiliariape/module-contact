@@ -1,5 +1,7 @@
 <?php
 
+namespace Bolsainmobiliariape\ModuleContact\Traits;
+
 use Bolsainmobiliariape\ModuleContact\Models\Contact;
 
 trait WithContact
