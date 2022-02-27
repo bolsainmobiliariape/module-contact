@@ -3,9 +3,13 @@
 namespace Bolsainmobiliariape\ModuleContact\Traits;
 
 use Bolsainmobiliariape\ModuleContact\Models\Contact;
+use Bolsainmobiliariape\ModuleContact\Mail\ContactsMail;
+use App\Traits\WithSendMails;
 
 trait WithContact
 {
+    use WithSendMails;
+    
     public $contact;
 
     public function mount(Contact $contact)
@@ -23,6 +27,10 @@ trait WithContact
         $this->validate();
 
         $this->contact->save();
+
+        if(env('MAIL', false)){
+            $this->sendMail('Nuevo Contacto - '. config('app.name'), $this->contact, ContactsMail::class);
+        }
 
         $this->doingAfter();
     }
