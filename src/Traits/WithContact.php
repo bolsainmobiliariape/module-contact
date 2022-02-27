@@ -4,11 +4,9 @@ namespace Bolsainmobiliariape\ModuleContact\Traits;
 
 use Bolsainmobiliariape\ModuleContact\Models\Contact;
 use Bolsainmobiliariape\ModuleContact\Mail\ContactsMail;
-use App\Traits\WithSendMails;
 
 trait WithContact
 {
-    use WithSendMails;
     
     public $contact;
 
